@@ -1,0 +1,20 @@
+{
+   "environment": "dev",
+   "debug": true,
+   "dbhost": "storeassist.scriptbees.com", "dbname":"storeAssist", "dbuser":"storeassist", "dbpass":"StoreAssist1$",
+   "messagedbhost": "104.236.123.150", "messagedbname":"message_db", "messagedbuser":"mohan", "messagedbpass":"mohan1$",
+   "mqdbhost": "localhost", "mqdbname":"moviequik", "mqdbuser":"root", "mqdbpass":"root",
+   "bakerydbhost": "localhost", "bakerydbname":"bakery", "bakerydbuser":"root", "bakerydbpass":"root",
+   "moneyorder_server":"104.236.123.150", "moneyorder_db":"message_db", "moneyorder_user":"mohan", "moneyorder_password":"mohan1$",
+   "poolsize" : 5,
+   "checkUserName" : "PayNet.PosGateway.7ElevenOK",
+   "checkPassword" : "ru5sybk82gvvhfpdklo",
+   "checkProxy" : "scproxy:3128",
+   "checkUrl" : "https://posprod.certegy.com:443",
+   "checkValidateUrl" : "/POSIPGatewayWeb/POSIPGatewayServlet",
+   "logfile": "storeassist.log",
+   "logtime": "midnight",
+   "host" : "0.0.0.0",
+   "extracts_location": "/var/extracts",
+   "printShelfUrl" : "http://upcserver:8000/product/"
+}

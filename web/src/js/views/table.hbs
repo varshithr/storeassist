@@ -1,0 +1,47 @@
+<div class="container">
+<div class="row js-changeOrder">
+  <div class="col-sm-3 pull-right">
+    <button style="margin-left:-32px;" class="btn btn-success dropdown-toggle js-addNewOrder" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      <i class="fa fa-plus"></i>&nbsp Add New
+    </button>
+  </div>
+</div>
+<div class="row db-changeOrder" style="width: 1000px">
+    <table id="example" class="display example_wrapper" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Order Date</th>
+                <th>Order By</th>
+                <th>Order Total</th>
+                <th>Received Date</th>
+                <th>Received By</th>
+                <th>Received Total</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each rows}}
+                <tr>
+                    <td>{{orderedDate}}</td>
+                    <td>{{ordered_by}}</td>
+                    <td>{{orderTotal}}</td>
+                    <td>{{receivedDate}}</td>
+                    <td>{{received_by}}</td>
+                    <td>{{receivedTotal}}</td>
+                    <td>{{Status}}</td>
+                    <td>
+                        <div class="row">
+                            <div class="col-sm-3 col-sm-offset-2">
+                              <i class="fa fa-list fa-2x js-changeOrderActions"
+                              data-changeOrderID="{{changeOrderID}}" data-total="{{orderTotal}}" data-date="{{orderedDate}}" data-orderBy="{{ordered_by}}"
+                              data-receivedBy="{{received_by}}" data-orderedDateTime = "{{order_datetime}}" data-receivedDatetime = "{{received_datetime}}"
+                              data-status="{{Status}}" data-receivedDate="{{receivedDate}}" data-receivedTotal="{{ReceivedTotal}}" aria-hidden="true" style="margin-left: -6px;cursor: pointer; cursor: hand;"></i>                            </div>
+                        </div>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+</div>

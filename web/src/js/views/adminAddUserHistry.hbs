@@ -1,0 +1,52 @@
+<div class="container">
+
+  <div class="row">
+    <h4 style="text-align:right; margin-right: 14%; margin-top: 0;"><a class="js-addUserButton btn btn-success pull-right" style="margin-right:45px;margin-bottom:10px;"><i class="fa fa-plus"></i>&nbsp Add New </a></h4>
+  </div>
+  <div class="row db-adminAddUserExample" style="width: 1020px">
+    <table id="adminAddUserExample" class="display example_wrapper" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th>UserId</th>
+          <th>Name</th>
+          <th>E-Mail</th>
+          <th>Initials</th>
+          <th>StoreId</th>
+          <th>Role</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each rows}}
+          <tr data-id="{{id}}" data-userid="{{user_id}}" data-name="{{name}}" data-email="{{email}}" data-initials="{{initials}}" data-storeid="{{store_id}}" data-role="{{role}}">
+            <td>{{user_id}}</td>
+            <td>{{name}}</td>
+            <td>{{email}}</td>
+            <td>{{initials}}</td>
+            <td>{{store_id}}</td>
+            <td>{{role}}</td>
+            <td>
+              <div class="row">
+                <div class="col-sm-3 col-sm-offset-2">
+                  <span class="pull-right"><a class="js-superadmin-edituser edpen" href=""><i class="fa fa-pencil"></i></a></span>
+                  <!-- <a href="#" class='js-superadmin-edituser btn btn-info' style="padding:3px;"> <i class="fa fa-pencil"></i>Edit</a> -->
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="row">
+                <div class="col-sm-3 col-sm-offset-2">
+                  <span class="pull-right">
+                 <a class="js-superadmin-deleteuser edpen" href=""> <i class="fa fa-trash-o"></i></a></span>
+                  <!-- <a href="#" class='js-superadmin-deleteuser btn btn-danger' style="padding:3px;">
+                    <i class="fa fa-remove"></i>Delete</a> -->
+                </div>
+              </div>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row js-changeOrder">
+        <div class="col-sm-3 pull-right">
+            <button  class="js-addshiftChechIn btn btn-success" type="button">
+              <i class="fa fa-plus"></i>&nbsp Add New
+            </button>
+        </div>
+    </div>
+
+    <div class="row db-shiftCheck" style="width: 1020px">
+        <table id="example" class="display example_wrapper" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>BusinessDate</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Initials</th>
+                    <th>Over/short</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {{#each rows}}
+                    <tr>
+                        <td>{{bdate}}</td>
+                        <td>{{date}}</td>
+                        <td>{{time}}</td>
+                        <td>{{initials}}</td>
+                        <td>{{Over_Short}}</td>
+                        <td>{{status}}</td>
+                        <td>
+                            <div class="row">
+                                <div class="col-sm-3 col-sm-offset-2">
+                                    <i class="fa fa-list fa-2x js-shiftcheckinActions" data-reconid="{{cash_recon_id}}" aria-hidden="true" style="margin-left: -6px;cursor: pointer; cursor: hand;"></i>
+
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="row col-sm-9">
+        <div id="js-cardhisterydiv">
+            <h4><a class="btn btn-success" id="js-histery-cardReader" style="margin-left: 745px;"><i class="fa fa-list"></i> View History</a></h4></div>
+    </div>
+    <div class="col-sm-6 col-sm-offset-2">
+        <form style="background-color: white;text-align: center;padding: 20px;border-radius: 5px">
+            <div class="row">
+                <div class="col-sm-8">
+                    <label class="control-label col-xs-3" for="time">Date</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-10">
+                    <input type="text" class="form-control js-cardReaderDate" style="padding: 10px;border: none;border-bottom: solid 2px #c9c9c9;transition: border 0.3s;background-color: white;font-size: 18px;" readonly />
+                </div>
+                <div class="col-sm-2">
+                    <span class="fa fa-calendar fa-2x"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-2" for="time">Time</label>
+                <input type="text" class="form-control style-4 js-cardReaderTime" style="padding: 10px;border: none;border-bottom: solid 2px #c9c9c9;transition: border 0.3s;background-color: white;font-size: 18px;" readonly>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-4" for="intials">Employee Initials</label>
+                <input type="text" maxlength="3" autocomplete="off" class="form-control style-4 js-empIntial" onkeypress="return onlyAlphabets(event,this);" name="intials" style="padding: 10px;border: none;border-bottom: solid 2px #c9c9c9;transition: border 0.3s;background-color: white;"
+                    autofocus>
+            </div>
+            <div class="radio">
+                <label class="control-label" for="reportConfirmation">Card Readers Checked?</label>
+                <br /> &nbsp&nbsp&nbsp&nbsp
+                <input type="radio" name="reportConfirmation" value=true>YES &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <input type="radio" name="reportConfirmation" value=false checked>NO
+            </div>
+            <div class="form-group">
+                <button class="btn btn--action btn-block js-reportSubmit" id="js-cardReaderSubmit" style="background-color:#00985C">OK</button>
+            </div>
+        </form>
+        <div>
+        </div>

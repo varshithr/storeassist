@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <!-- <button class="btn btn-success dropdown-toggle js-addshiftChechIn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <i class="fa fa-plus"></i> Go To shift checkin
+  </button> -->
+    <h4 style="text-align:right; margin-right:0;"><a class="js-addsendMessageHistry btn btn-success pull-right" style="margin-right:186px;margin-top:0px;margin-bottom:10px"><i class="fa fa-plus"></i>&nbsp Add New </a></h4>
+  </div>
+  <div class="row db-sendMessageHistry" style="width: 1020px">
+    <table id="sendMessageHistryexample" class="display example_wrapper" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th>Date Sent</th>
+          <th>Delivery Date</th>
+          <th>Delivery Time</th>
+          <th>Message</th>
+          <th>Read</th>
+          <th>Send By</th>
+          <th>Time Sent</th>
+          <th>Edit</th>
+          <th>Delete</th>
+          <!-- <th>Actions</th> -->
+        </tr>
+      </thead>
+
+      <tbody>
+        {{#each rows}}
+          <tr data-messageid="{{message_id}}" data-deliverydate="{{deliver_date}}"
+           data-deliverytime="{{deliver_time}}" data-subject="{{subject}}" data-body="{{body}}">
+            <td>{{date_sent}}</td>
+            <td>{{deliver_date}}</td>
+            <td>{{deliver_time}}</td>
+            <td>{{message_id}}</td>
+            {{#equaltoo read 1}}
+              <td> Yes </td>
+              {{else}}
+                <td> No </td>
+            {{/equaltoo}}
+            <td>{{sent_by}}</td>
+            <td>{{time_sent}}</td>
+            <td>
+              <div class="row">
+                <div class="col-sm-3 col-sm-offset-2">
+                  <span class="pull-right"><a class="js-sendmsg-edituser edpen" href=""><i class="fa fa-pencil"></i></a></span>
+                  <!-- <a href="#" class='js-superadmin-edituser btn btn-info' style="padding:3px;"> <i class="fa fa-pencil"></i>Edit</a> -->
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="row">
+                <div class="col-sm-3 col-sm-offset-2">
+                  <span class="pull-right">
+                 <a class="js-sendmsg-deleteuser edpen" href=""> <i class="fa fa-trash-o"></i></a></span>
+                  <!-- <a href="#" class='js-superadmin-deleteuser btn btn-danger' style="padding:3px;">
+                    <i class="fa fa-remove"></i>Delete</a> -->
+                </div>
+              </div>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>

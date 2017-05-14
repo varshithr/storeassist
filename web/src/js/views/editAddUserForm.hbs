@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="row" style="width: 500px">
+    <div class="row">
+      <h4><a class="js-editUserBack btn btn-success pull-right"><i class="fa fa-plus"></i>&nbsp View History </a></h4>
+    </div>
+    <div class="col-lg-offset-4 col-lg-8 col-md-4" id="js-selectstore-hide" style="margin-top:50px;background-color: white;text-align: center;width: 620px; height: 450px">
+      <tr data_id="{{id}}">
+        <form class="form-horizontal" id="js-signup-form" style="padding-top: 20px">
+          <div class="form-group">
+            <label class="control-label col-xs-3" for="inputName">UserID:<span class="required-asterisk" style="color: red">*</span></label>
+            <div class="col-xs-6">
+              <input type="Name" value="{{user_id}}" onkeypress="check(event,this);" class="form-control keyup-name text-input" id="js-editUser-userId" placeholder="Name" autofocus>
+            </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-xs-3" for="inputName">Name:<span class="required-asterisk">*</span></label>
+          <div class="col-xs-6">
+
+              <input type="Name" value="{{name}}" onkeypress="check(event,this);" class="form-control keyup-name text-input" id="js-editUser-inputName" placeholder="Name">
+
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-xs-3" for="E-mail">E-mail:<span class="required-asterisk">*</span></label>
+          <div class="col-xs-6">
+            <input type="email" value="{{email}}" class="form-control" id="js-editUser-E-mail" placeholder="E-mail">
+          </div>
+        </div>
+        <!-- <div class="form-group">
+        <label class="control-label col-xs-3" for="Password">Password:<span class="required-asterisk">*</span></label>
+        <div class="col-xs-6">
+          <input type="password" class="form-control" id="js-editUser-Password" placeholder="Password">
+        </div>
+      </div> -->
+        <div class="form-group">
+          <label class="control-label col-xs-3" for="Initials">Initials:<span class="required-asterisk">*</span></label>
+          <div class="col-xs-6">
+            <input type="text" value="{{initials}}" onkeypress="checkinitial(event,this);" class="form-control keyup-intials text-input" maxlength="3" id="js-editUser-Initials" placeholder="Initials">
+          </div>
+        </div>
+        <div class="form-group">
+          <!-- <label class="control-label col-xs-3">Store:</label>
+          <div class="col-xs-6">
+            <select class="form-control" id="js-msgstoreid">
+              {{#each stores}}
+                {{#equaltoo store_id @../user_store_id}}
+                  <option value="{{store_id}}" selected> Store {{store_id}}</option>
+                {{else}}
+                  <option value="{{store_id}}"> Store {{store_id}}</option>
+                {{/equaltoo}}
+              {{/each}}
+            </select> -->
+            <label class="control-label col-xs-3" for="store">Store:<span class="required-asterisk">*</span></label>
+            <div class="col-xs-6">
+              <input type="text" value="{{user_store_id}}" class="form-control keyup-intials text-input" id="js-editUser-storeId" placeholder="store" disabled>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-xs-3" for="role">Role:<span class="required-asterisk">*</span></label>
+            <div class="col-xs-6">
+              <input type="text" value="{{role}}"  class="form-control keyup-intials text-input" id="js-editUser-role" placeholder="role" disabled>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-offset-3 col-xs-9">
+              <button type="submit" class="btn btn-primary js-superadmin-editusersubmit" data-id="{{id}}">Submit</button>
+              <button type="reset" class="btn btn-default js-superadmin-edituserreset">Reset</button>
+            </div>
+          </div>
+        </div>
+      </form>
+      </td>
+  </div>
+
+</div>
+</div>

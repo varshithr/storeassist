@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="row col-sm-12">
+    <div class="col-sm-10"></div>
+    <div class="col-sm-2">
+        <h4><a class="js-admViewHistry btn btn-success pull-right"><i class="fa fa-plus"></i>&nbsp View History </a></h4>
+    </div>
+  </div>
+  <div class="col-sm-12" style="border-style:solid;border-width: 1px;">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="col-sm-2" readonly>
+          Date / Time :
+        </div>
+        <div class="col-sm-4 form-group">
+          <input type="text" class="form-control" id="dateid" name="date" value="{{todaydate}}" readonly>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="col-sm-2">
+          Subjet :
+        </div>
+        <div class="col-sm-8 form-group">
+          <input type="text" class="form-control" value="{{subject}}" id="js-editmsgsubject" name="subject">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="col-sm-2">
+          Body :
+        </div>
+        <div class="col-sm-8 form-group">
+          <textarea rows="4" cols="50" type="text"  class="form-control" id="js-editmsgtextbox" name="textbox">
+            {{body}}
+          </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="col-sm-2 ">
+          Delivery Date :
+        </div>
+        <div class="col-sm-4 form-group">
+          <div class='input-group date' id='datetimepicker10'>
+            <input type='text'id="js-msgdelivarydate" value="{{delivery_date}}" class="form-control" />
+            <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar">
+                    </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="col-sm-2">
+          Delivery Time :
+        </div>
+        <div class="col-sm-4 form-group">
+          <div class='input-group date' id='datetimepicker3'>
+            <input type='text'id="js-msgdelivarytime" value="{{delivery_time}}" class="form-control" />
+            <span class="input-group-addon">
+                     <span class="glyphicon glyphicon-time"></span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+    <div class="row col-sm-12">
+      <div class="col-sm-10"></div>
+      <div class="form-group col-sm-2">
+        <button class="btn btn--action btn-block js-editsendmsgsubmit" data-messageid="{{message_id}}" data-accType="submit">Submit</button>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>

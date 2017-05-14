@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-sm-5 col-sm-offset-3 text-center" style="margin-top: 30px;margin-bottom:30px">
+        <p style="font-weight: bold;font-size: 20px">Warning</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-5 col-sm-offset-3">
+        <form style="background-color: white;text-align: center;padding: 20px;border-radius: 5px">
+            <p><span id="js-reportName"></span> There are orders left in Saved state in the following categories:
+                {{#equaltoo BakeryOrderStatus 'Save'}}
+                    <p>Bakery Order</p>
+                    {{else}}
+                {{/equaltoo}}
+                {{#equaltoo ChangeOrderStatus 'Save'}}
+                    <p>Change Orders</p>
+                    {{else}}
+                {{/equaltoo}}
+                {{#equaltoo GasDipStatus 'Save'}}
+                    <p>Manual Gas Dip Reports</p>
+                    {{else}}
+                {{/equaltoo}}
+                {{#equaltoo ShiftCheckInStatus 'Save'}}
+                    <p>Shift Check-in</p>
+                    {{else}}
+                {{/equaltoo}}
+                Please complete them to proceed futher.
+            </p>
+            <br/>
+            <div class="row">
+              <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <button class="btn btn-block btn--action col-sm-6" id="js-histery-link">EXIT</button>
+                </div>
+              <div class="col-sm-3"></div>
+            </div>
+        </form>
+    </div>
+</div>

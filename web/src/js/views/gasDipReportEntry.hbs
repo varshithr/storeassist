@@ -1,0 +1,83 @@
+<div class="row">
+  <div id="js-GasDiphisterydiv">
+      <h4 style="text-align:right; margin-right: 10%;"><a class="btn btn-success" style="margin-right:125px;margin-top:0px;" id="js-histery-gasDip"><i class="fa fa-list"></i> View History</a></h4></div>
+  </div>
+  <div class="col-sm-6 col-sm-offset-3">
+    <!-- <div class="row">
+    <div id="js-GasDiphisterydiv">
+        <h4 style="text-align:right; margin-right: 10%;"><a id="js-histery-gasDip">Go To History Page</a></h4></div>
+    </div> -->
+    <form style="background-color: white;text-align: center;padding: 20px;border-radius: 5px; width: 80%; height:220px">
+        <div class="row">
+          <div class="col-sm-8">
+                <label class="control-label col-xs-5" for="time" style="margin-left:-15px;">Date</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-sm-10">
+              <input type="text" class="form-control" id="gas_date" value="{{date}}" style="padding: 10px;border: none;border-bottom: solid 2px #c9c9c9;transition: border 0.3s;background-color: white;font-size: 18px;" readonly />
+          </div>
+          <div class="col-sm-2">
+              <span class="fa fa-calendar fa-2x"></span>
+          </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-6" for="intials" style="margin-left:-15px;">Employee Initials</label>
+            <input autofocus type="text" maxlength="3" class="form-control style-4 js-empIntial" onkeypress="return onlyAlphabets(event,this);" name="intials" value="{{init}}" style="padding: 10px;border: none;border-bottom: solid 2px #c9c9c9;transition: border 0.3s;background-color: white; width: 295px;">
+        </div>
+        <div class="radio">
+            <label class="control-label" for="reportConfirmation">Tanks Dipped?</label> <br />
+            &nbsp&nbsp&nbsp&nbsp
+            {{#equaltoo dipped_yn 1}}
+            <input type="radio" name="reportConfirmation" value=true checked>YES &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <input type="radio" name="reportConfirmation" value=false >NO
+            {{else}}
+            <input type="radio" name="reportConfirmation" value=true >YES &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <input type="radio" name="reportConfirmation" value=false checked>NO
+            {{/equaltoo}}
+        </div>
+    </form>
+    <div>
+</div>
+
+
+<div class="row">
+    <table class="table" style="width:80%;">
+        <thead>
+            <tr class="card">
+                <th>Tank</th>
+                <th>Description</th>
+                <th>Water</th>
+            </tr>
+        </thead>
+
+        <tbody class="js-manualGasDipBody">
+            {{#each rows}}
+                <tr class="card">
+                    <td class="form-group mytable">
+                        <p class="js-tank">{{tank}}</p>
+                    </td>
+                    <td class="form-group mytable ">
+                        <p class="js-desc">{{description}}<p>
+                    </td>
+                    <td class="form-group mytable">
+                      {{#equaltoo status 'Complete'}}
+                        <input type="text" data-dayid="{{dayid}}" data-gallons="{{gallons}}" data-inches="{{inches}}" data-temp="{{temp}}" data-ullage="{{ullage}}" data-ts="{{ts}}" class="js-water js-decimal-type textright" min=0 value="{{water}}" readonly="readonly" placeholder="0.00">
+                        {{else}}
+                        <input type="text" data-dayid="{{dayid}}" data-gallons="{{gallons}}" data-inches="{{inches}}" data-temp="{{temp}}" data-ullage="{{ullage}}" data-ts="{{ts}}" class="js-water js-decimal-type textright" min=0 value="{{water}}"  placeholder="0.00">
+
+                        {{/equaltoo}}
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+<div class="row">
+    <div class="form-group col-sm-3 col-sm-offset-6">
+        <button class="btn btn--dark btn-block js-gasDipReportSubmit" data-accType="Save" data-loading-text="Loading...">Save</button>
+    </div>
+    <div class="form-group col-sm-3">
+        <button class="btn btn--action btn-block js-gasDipReportSubmit" data-accType="Complete" data-loading-text="Loading...">Complete</button>
+    </div>
+</div>

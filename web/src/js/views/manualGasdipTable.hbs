@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row js-changeOrder">
+        <div class="col-sm-3 pull-right">
+            <button style="margin-left:-32px;" class="btn btn-success dropdown-toggle js-addgasDipPayment" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      <i class="fa fa-plus"></i>&nbsp Add New
+    </button>
+        </div>
+    </div>
+
+    <div class="row db-manualGas" style="width: 1020px">
+        <table id="manualgasdipexample" class="display example_wrapper" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>BusinessDate</th>
+                    <th>ReportedDate</th>
+                    <th>Time</th>
+                    <th>Dipped</th>
+                    <th>Initials</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {{#each tablerows}}
+                    <tr>
+                        <td>{{bdate}}</td>
+                        <td>{{date}}</td>
+                        <td>{{time}}</td>
+                        <td>
+                            {{#equaltoo dipped_yn "1"}}
+                                Yes
+                                {{else}}
+                                    No
+                            {{/equaltoo}}
+                        </td>
+                        <td>{{init}}</td>
+                        <td>{{status}}</td>
+                        <td>
+                            <div class="row">
+                                <div class="col-sm-3 col-sm-offset-2">
+                                    <i class="fa fa-list fa-2x js-gasdipOrderActions" data-date="{{date}}" aria-hidden="true" style="margin-left: -6px;cursor: pointer; cursor: hand;"></i>
+                                </div>
+                            </div>
+                        </td>
+
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

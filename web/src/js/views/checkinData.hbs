@@ -1,0 +1,225 @@
+<div class="row">
+ <div id="js-histerydiv"> <h4  style="text-align:right; margin-right: 10%;"><a class="btn btn-success" style="margin-right:125px;margin-top:0px;" id="js-histery-link"><i class="fa fa-list"></i> View History</a></h4></div>
+ <div id="js-histerydetailspage"></div>
+ <div id="js-contentdiv"></div>
+</div>
+
+<div class="row">
+  <div class="col-sm-8" style="border-style:solid;margin-left: 7%;border-width: 1px;">
+    <div class="row" style="margin-top: 20px">
+      <div class="col-sm-12">
+        <div class="col-sm-6 text-right" readonly>
+          Date / Time :
+        </div>
+        <div class="col-sm-4 form-group">
+          <input type="text" class="form-control textright" id="dateid" name="date" value="{{date1}}" readonly>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12" style="margin-top: -16px">
+        <div class="col-sm-6 text-right">
+          Business Date :
+        </div>
+        <div class="col-sm-4 form-group">
+          {{#if bdate}}
+            <input type="text" class="form-control textright" readonly name="businessdate" value="{{bdate}}">
+          {{else}}
+            <input type="text" class="form-control textright" readonly name="businessdate" value="{{date}}">
+          {{/if}}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12" style="margin-top: -16px">
+        <div class="col-sm-6 text-right">
+          Employee Initials :
+        </div>
+        <div class="col-sm-4 form-group">
+          {{#equaltoo Status 'Complete'}}
+            <input type="text" onkeypress="return onlyAlphabets(event,this);" class="form-control" autocomplete="off" id="initialsid" maxlength="3" name="initials" value="{{initials}}" readonly style="background-color:#fff; text-align:right" autofocus>
+            {{else}}
+              <input type="text" onkeypress="return onlyAlphabets(event,this);" class="form-control" autocomplete="off" id="initialsid" maxlength="3" name="initials" value="{{initials}}" style="text-align:right" autofocus>
+
+          {{/equaltoo}}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="col-sm-6 text-right">
+          Cash : Registers :
+        </div>
+        <div class="col-sm-4 form-group">
+          {{#equaltoo Status 'Complete'}}
+
+            <input type="text" min="0" id="rigistersid" readonly name="Registers" value="{{getFloatAmount Registers}}" class="form-control textright ending-cash CsstxtName js-decimal-type" style="background-color:#fff;">
+            {{else}}
+              <input type="text" min="0" id="rigistersid" name="Registers" value="{{getFloatAmount Registers}}" class="form-control textright ending-cash CsstxtName js-decimal-type">
+
+          {{/equaltoo}}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12" style="margin-top: -16px">
+        <div class="col-sm-6 text-right">
+          + Cash : M.O. Drawer :
+        </div>
+        <div class="col-sm-4 form-group">
+          {{#equaltoo Status 'Complete'}}
+            <input type="text" min="0" id="modrawer" name="Drawer" value="{{getFloatAmount Drawer}}" class="form-control textright ending-cash CsstxtName js-decimal-type" readonly style="background-color:#fff;">
+            {{else}}
+              <input type="text" min="0" id="modrawer" name="Drawer" value="{{getFloatAmount Drawer}}" class="form-control textright ending-cash CsstxtName js-decimal-type">
+
+          {{/equaltoo}}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12" style="margin-top: -16px">
+        <div class="col-sm-6 text-right">
+          + Cash : Top of Safe :
+        </div>
+        <div class="col-sm-4 form-group">
+          {{#equaltoo Status 'Complete'}}
+            <input type="text" min="0" name="Top_of_Safe" value="{{getFloatAmount Top_of_Safe}}" id="topofsafe" class="form-control textright ending-cash CsstxtName js-decimal-type" readonly style="background-color:#fff;">
+            {{else}}
+              <input type="text" min="0" name="Top_of_Safe" value="{{getFloatAmount Top_of_Safe}}" id="topofsafe" class="form-control textright ending-cash CsstxtName js-decimal-type">
+          {{/equaltoo}}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12" style="margin-top: -16px">
+        <div class="col-sm-6 text-right">
+          + Change Fund /Other :
+        </div>
+        <div class="col-sm-4 form-group">
+          {{#equaltoo Status 'Complete'}}
+            <input type="text" min="0" id="changefund" readonly name="Change_Fund" value="{{getFloatAmount Change_Fund}}" class="form-control textright ending-cash CsstxtName js-decimal-type" style="background-color:#fff;">
+            {{else}}
+              <input type="text" min="0" id="changefund" name="Change_Fund" value="{{getFloatAmount Change_Fund}}" class="form-control textright ending-cash CsstxtName js-decimal-type">
+          {{/equaltoo}}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12" style="margin-top: -16px">
+        <div class="col-sm-6 text-right">
+          = Ending Cash :
+        </div>
+        <div class="col-sm-4 form-group">
+
+          <input type="text" tabindex= "-1" id="endingcashid" name="Ending_Cash" value="{{getFloatAmount Ending_Cash}}" class="form-control textright" readonly>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="col-sm-6 text-right">
+          + Drops :
+        </div>
+        <div class="col-sm-4 form-group">
+          {{#equaltoo Status 'Complete'}}
+            <input type="text" min="0" id="dropsid" name="Drops" value="{{getFloatAmount Drops}}" class="form-control textright todays-cash CsstxtName js-decimal-type" readonly style="background-color:#fff">
+            {{else}}
+              <input type="text" min="0" id="dropsid" name="Drops" value="{{getFloatAmount Drops}}" class="form-control textright todays-cash CsstxtName js-decimal-type">
+
+          {{/equaltoo}}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12" style="margin-top: -16px">
+        <div class="col-sm-6 text-right">
+          + Checks :
+        </div>
+        <div class="col-sm-4 form-group">
+          {{#equaltoo Status 'Complete'}}
+            <input type="text" min="0" id="checksid" name="Checks" value="{{getFloatAmount Checks}}" class="form-control textright todays-cash CsstxtName js-decimal-type" readonly style="background-color:#fff">
+            {{else}}
+              <input type="text" min="0" id="checksid" name="Checks" value="{{getFloatAmount Checks}}" class="form-control textright todays-cash CsstxtName js-decimal-type">
+
+          {{/equaltoo}}
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12" style="margin-top: -16px">
+        <div class="col-sm-6 text-right">
+          - Change Orders :
+        </div>
+        <div class="col-sm-4 form-group">
+          {{#equaltoo Status 'Complete'}}
+            <input type="text" min="0" id="changeorderid" name="Change_Orders" value="{{getFloatAmount Change_Orders}}" class="form-control textright todays-cash CsstxtName js-decimal-type" readonly style="background-color:#fff">
+
+            {{else}}
+              <input type="text" min="0" id="changeorderid" name="Change_Orders" value="{{getFloatAmount Change_Orders}}" class="form-control textright todays-cash CsstxtName js-decimal-type">
+          {{/equaltoo}}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12" style="margin-top: -16px">
+        <div class="col-sm-6 text-right">
+          - Beginning Cash :
+        </div>
+        <div class="col-sm-4 form-group">
+          <input type="text" tabindex= "-1" id="beginningcashid" name="Beginning_Cash" class="form-control textright" value="{{getFloatAmount Beginning_Cash}}" readonly>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12" style="margin-top: -16px">
+        <div class="col-sm-6 text-right">
+          = Today's Cash :
+        </div>
+        <div class="col-sm-4 form-group">
+          <input type="text" tabindex= "-1" id="todaysid" name="Todays_Cash" class="form-control textright" value="{{getFloatAmount Todays_Cash}}" readonly>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="col-sm-6 text-right">
+          - Cash Sales :
+        </div>
+        <div class="col-sm-4 form-group">
+          <input type="text" tabindex= "-1" id="cashsalesid" name="Cash_Sales" class="form-control textright" value="{{getFloatAmount Cash_Sales}}" readonly>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12" style="margin-top: -16px">
+        <div class="col-sm-6 text-right">
+          = Over / Short :
+        </div>
+        <div class="col-sm-4 form-group">
+          <input type="text" tabindex= "-1" id="overorshortid" nale="Over_Short" class="form-control textright" value="{{getFloatAmount Over_Short}}" readonly>
+        </div>
+      </div>
+    </div>
+
+    <div class="row col-sm-12">
+      <div class="col-sm-8">
+      </div>
+      <div class="form-group col-sm-2">
+        {{#equaltoo Status 'Complete'}}
+          <button class="btn btn--dark btn-block js-shiftcheckinsave" data-insertFlag="true" data-status="{{Status}}" data-cash_recon_id="{{cash_recon_id}}" data-type="{{type}}" data-accType="Save" disabled>Save</button>
+          {{else}}
+            <button class="btn btn--dark btn-block js-shiftcheckinsave" data-insertFlag="true" data-status="{{Status}}" data-cash_recon_id="{{cash_recon_id}}" data-type="{{type}}" data-accType="Save">Save</button>
+        {{/equaltoo}}
+      </div>
+      <div class="form-group col-sm-2 ">
+        {{#equaltoo Status 'Complete'}}
+          <button class="btn btn--action btn-block js-shiftcheckincomplete" data-status="{{Status}}" data-cash_recon_id="{{cash_recon_id}}" data-type="{{type}}" data-accType="Complete" disabled>Complete</button>
+          {{else}}
+            <button class="btn btn--action btn-block js-shiftcheckincomplete" data-status="{{Status}}" data-cash_recon_id="{{cash_recon_id}}" data-type="{{type}}" data-accType="Complete" data-loading-text="Loading...">Complete</button>
+
+        {{/equaltoo}}
+      </div>
+    </div>
+  </div>
+</div>

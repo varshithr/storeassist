@@ -1,0 +1,33 @@
+<b>MoneyOrder History</b>
+<br/>
+<br/>
+
+<div class="row db-moneyReader" style="width: 1020px">
+  <table id="moneyorderexample" class="display example_wrapper" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>StoreId</th>
+        <th>Serial No</th>
+        <th>Money Order Payment</th>
+        <th>Status</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      {{#each tablerows}}
+        <tr>
+          <td>{{date}}</td>
+          <td>{{store}}</td>
+          <td>{{serial_no}}</td>
+          <td>{{method}}</td>
+          {{#equaltoo success 1}}
+            <td> Yes </td>
+            {{else}}
+              <td> No </td>
+          {{/equaltoo}}
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

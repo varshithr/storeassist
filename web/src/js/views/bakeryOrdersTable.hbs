@@ -1,0 +1,45 @@
+<div class="container db-bakeryOrders">
+    <div class="row js-changeOrder">
+        <div class="col-sm-3 pull-right">
+            <button style="margin-left:-32px;" class="btn btn-success dropdown-toggle js-bakeryOrders" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      <i class="fa fa-plus"></i>&nbsp Add New
+    </button>
+        </div>
+    </div>
+
+    <div class="row db-endofDay" style="width: 1020px">
+        <table id="example" class="display example_wrapper" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <!-- <th></th> -->
+                    <th>Delivery Date</th>
+                    <th>Order Date/Time</th>
+                    <th>Active</th>
+                    <th>On Hand Quantity</th>
+                    <th>Return Quantity</th>
+                    <th>Actions</th>
+                    <!-- <th>Salary</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                {{#each rows}}
+                    <tr>
+                        <td>{{DATE}}</td>
+                        <td>{{order_time}}</td>
+                        <td>{{active}}</td>
+                        <td>{{on_hand_qty}}</td>
+                        <td>{{return_qty}}</td>
+                        <td>
+                            <div class="row">
+                                <div class="col-sm-3 col-sm-offset-2">
+                                    <i class="fa fa-list fa-2x js-bakeryOrderActions" data-changeOrderID="{{changeOrderID}}" data-total="{{Total}}" data-date="{{DATE}}" data-orderedDateTime="{{order_time}}" data-orderBy="{{active}}" data-status="{{on_hand_qty}}" data-received_status="{{return_qty}}" aria-hidden="true" style="margin-left: -6px;cursor: pointer; cursor: hand;"></i>
+                                </div>
+                            </div>
+                        </td>
+
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

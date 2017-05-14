@@ -1,0 +1,71 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Login</title>
+    <link rel="icon" href="favicon.ico">
+    <link href="dist/css/main.css" rel="stylesheet">
+</head>
+
+<body style="overflow-y:hidden">
+    <div class="container" style="background: #3c4544;width: 100%">
+        <div class="row">
+            <div class="login text-center bounceInDown animated">
+                <!-- <img src="http://storeassist.scriptbees.com/images/logo.png" alt="" /> -->
+                <img src="/images/7eleven.png" alt="" />
+                <h3 class="title">StoreAssist</h3>
+                <form id="login-form">
+                    <div class="form-group">
+                        <input id="userid" type="text" class="form-control" name="username" placeholder="Username" style="background-color: #3C4544;color: white" autofocus> </div>
+                    <div class="form-group">
+                        <input id="password" type="password" class="form-control" name="password" placeholder="Password" style="background-color: #3C4544;color: white"> </div>
+                    <div class="form-group">
+                        <button class="btn btn--action btn-block js-button-login" style="background-color:#00985C">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+    <script src="/bower_components/handlebars/handlebars.js"></script>
+    <script src="/src/js/sha256.jquery.debug.js"></script>
+    <script src="/src/js/jquerypp.js"></script>
+    <script src="/src/js/interact.js"></script>
+    <script src="/src/js/pnotify.custom.min.js"></script>
+    <script src="/src/js/jquery.fixedTblHdrLftCol.js"></script>
+    <script src="/src/js/app.js"></script>
+    <script>
+    $(document).ready(function() {
+        if ($.cookie('user')) {
+            if ($.cookie('user').role == 'Admin') {
+                document.location.href = "/admin.html";
+            } else if ($.cookie('user').role == 'Employee') {
+                document.location.href = "/employee.html";
+            } else if ($.cookie('user').role == 'SuperAdmin') {
+                document.location.href = "/superadmin.html";
+            } else {
+                document.location.href = "/help.html";
+            }
+        } else {
+            $('.js-button-login').on('click', function(ev) {
+                makeLogin(ev);
+            });
+            $('#login-form #password').on('keyup', function(ev) {
+                if (ev.which === 13) {
+                    ev.preventDefault();
+                    makeLogin(ev);
+                }
+            });
+        }
+
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<div class="container">
+  <div class="row col-sm-6 col-sm-offset-2">
+    <div id="js-Bakeryhisterydiv">
+      <h4 style="text-align:right; margin-right: 20%;"><a class="btn btn-success" style="margin-right:-145px;margin-top:0px;" id="js-histery-bakery"><i class="fa fa-list"></i> View History</a></h4></div>
+  </div>
+  <div class="row col-sm-6 col-sm-offset-2">
+    <form style="background-color: white;text-align: center;padding: 20px;border-radius: 5px;margin-right:-38px">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="row">
+            <div class="col-sm-8">
+              <label class="control-label col-xs-3" for="time">Delivery Date</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-sm-10">
+              <input type="text" class="form-control js-bakeryDeliveryDate" style="padding: 10px;border: none;border-bottom: solid 2px #c9c9c9;transition: border 0.3s;background-color: white;font-size: 18px;" readonly />
+            </div>
+
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="row">
+            <div class="col-sm-8">
+              <label class="control-label col-xs-3" for="time">Ordered Date/Time</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-sm-10">
+              <input type="text" class="form-control js-bakeryReceivedDate" style="padding: 10px;border: none;border-bottom: solid 2px #c9c9c9;transition: border 0.3s;background-color: white;font-size: 18px;" readonly />
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="row">
+  <!-- <div id="js-Bakeryhisterydiv">
+    <h4 style="text-align:right; margin-right: 20%;"><a class="btn btn-success" style="margin-right:20px;margin-top:0px;" id="js-histery-bakery"><i class="fa fa-list"></i> View History</a></h4></div> -->
+  <div class="col-sm-8 col-sm-offset-2">
+    <table class="table table-striped table-colored" style="margin-bottom: 10px;">
+      <thead>
+        <tr class="card">
+          <th>Items Name</th>
+          <th>On Hand</th>
+          <th>Return</th>
+        </tr>
+      </thead>
+      <tbody class="js-bakeryOrdersBody">
+        {{#each rows}}
+          {{#equaltoo active 'Complete'}}
+            <tr class="card" data-requests_id="{{requests_id}}" data-name="{{descr}}" data-id="{{id}}" data-nbr="{{nbr}}" data-pick_nbr="{{pick_nbr}}" data-sku="{{sku}}">
+              <td class="js-productName">
+                {{descr}}
+              </td>
+              <td>
+                <input type="number" autofocus style="text-align: right" min=0 onkeypress='return event.charCode >= 48 && event.charCode <= 57 &&event.charCode != 189' class="form-control js-productQtyOnHand" value="{{on_hand_qty}}" disabled>
+              </td>
+              <td>
+                <input type="number" style="text-align: right" min=0 onkeypress='return event.charCode >= 48 && event.charCode <= 57 &&event.charCode != 189' class="form-control js-productQtyReturn" value="{{return_qty}}" disabled>
+              </td>
+            </tr>
+            {{else}}
+              <tr class="card" data-requests_id="{{requests_id}}" data-name="{{descr}}" data-id="{{id}}" data-nbr="{{nbr}}" data-pick_nbr="{{pick_nbr}}" data-sku="{{sku}}">
+                <td class="js-productName">
+                  {{descr}}
+                </td>
+                <td>
+                  <input type="number" autofocus style="text-align: right" min=0 onkeypress='return event.charCode >= 48 && event.charCode <= 57 &&event.charCode != 189' class="form-control js-productQtyOnHand" value="{{on_hand_qty}}" data-amount="{{Amount}}" step="{{#parseNumber Amount}}{{value}}{{/parseNumber}}">
+                </td>
+                <td>
+                  <input type="number" style="text-align: right" min=0 onkeypress='return event.charCode >= 48 && event.charCode <= 57 &&event.charCode != 189' class="form-control js-productQtyReturn" value="{{return_qty}}" data-amount="{{Amount}}" step="{{#parseNumber Amount}}{{value}}{{/parseNumber}}">
+                </td>
+              </tr>
+          {{/equaltoo}}
+        {{/each}}
+        <tr class="card">
+          <td class="mytable">Total</td>
+          <td class="form-group mytable">
+
+            <input type="number" style="text-align: right" onkeypress='return event.charCode >= 48 && event.charCode <= 57 &&event.charCode != 189' min=0 class="form-control js-bakeryordered-amountTotal" value="{{handsTotal}}" readonly tabindex="-1">
+
+          </td>
+          <td class="form-group mytable">
+
+            <input type="number" style="text-align: right" onkeypress='return event.charCode >= 48 && event.charCode <= 57 &&event.charCode != 189' min=0 class="form-control js-bakeryReturn-amountTotal" value="{{returnsTotal}}" readonly tabindex="-1">
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{{#equaltoo status 'today'}}
+
+  <div class="row">
+    <div class="col-sm-2 col-sm-offset-6">
+      <button class="btn btn--dark btn-block js-bakeryOrder-actions" data-accType="Save" data-loading-text="Loading...">Save</button>
+    </div>
+    <div class="col-sm-2">
+      <button class="btn btn--action btn-block js-bakeryOrder-actions" data-accType="Complete" data-loading-text="Loading...">Complete</button>
+    </div>
+  </div>
+{{/equaltoo}}

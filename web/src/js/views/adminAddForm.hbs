@@ -1,0 +1,73 @@
+<div class="row" style="width: 500px">
+  <div class="row">
+    <div class="row">
+      <h4 style="text-align:right;margin-right: -330px margin-top: 0;"><a class="js-adminaddformuser btn btn-success pull-right" style="margin-right:45px;margin-bottom:10px;"><i class="fa fa-plus"></i>&nbsp View History</a></h4>
+    </div>
+    <div id="js-superadminhistrypage"></div>
+    <div id="js-contentdiv"></div>
+  </div>
+
+  <div class="col-lg-offset-4 col-lg-8 col-md-4" id="js-selectstore-hide" style="margin-top:50px;background-color: white;text-align: center;width: 620px; height: 450px">
+
+    <form class="form-horizontal" id="js-signup-form" style="padding-top: 20px">
+      <div class="form-group">
+        <label class="control-label col-xs-3" for="inputName">UserID:<span class="required-asterisk" style="color: red">*</span></label>
+        <div class="col-xs-6">
+          <input type="Name" onkeypress="check(event,this);" class="form-control keyup-name text-input" id="js-addUser-userId" placeholder="Name" autofocus>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-xs-3" for="inputName">Name:<span class="required-asterisk">*</span></label>
+        <div class="col-xs-6">
+          <input type="Name" onkeypress="check(event,this);" class="form-control keyup-name text-input" id="js-addUser-inputName" placeholder="Name">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-xs-3" for="E-mail">E-mail:<span class="required-asterisk">*</span></label>
+        <div class="col-xs-6">
+          <input type="email" class="form-control" id="js-addUser-E-mail" placeholder="E-mail" value= {{email}}>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-xs-3" for="Password">Password:<span class="required-asterisk">*</span></label>
+        <div class="col-xs-6">
+          <input type="password" class="form-control" id="js-addUser-Password" placeholder="Password">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-xs-3" for="Initials">Initials:<span class="required-asterisk">*</span></label>
+        <div class="col-xs-6">
+          <input type="text" onkeypress="checkinitial(event,this);" class="form-control keyup-intials text-input" maxlength="3" id="js-addUser-Initials" placeholder="Initials">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-xs-3">Store:</label>
+        <div class="col-xs-6">
+          <select class="form-control" id="js-addUser-stores">
+            <option value="0">Select store</option>
+          </select>
+        </div>
+
+      </div>
+      <div class="form-group">
+        <label class="control-label col-xs-3">Designation:</label>
+        <div class="col-xs-6">
+          <select class="form-control" id="js-addUser-Designation" disabled>
+
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-offset-3 col-xs-9">
+          <button type="submit" class="btn btn-primary" id="js-addNewUser-submit" disabled>Submit</button>
+          <button type="reset" class="btn btn-default" id="js-button-reset">Reset</button>
+        </div>
+      </div>
+    </form>
+
+
+  </div>
+
+</div>

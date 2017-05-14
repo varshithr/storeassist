@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row col-sm-3 pull-right">
+        <h4><a class = "btn btn-success" id="js-addCardReader" style="margin-left: -37px;"><i class="fa fa-plus"></i>&nbsp Add New </a></h4>
+    </div>
+    <div class="row db-cardReader" style="width: 1020px">
+        <table id="cardreaderexample" class="display example_wrapper" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>BusinessDate</th>
+                    <th>Employee Initials</th>
+                    <th>Checked Status </th>
+                    <th>Reported Date</th>
+                    <th>Reported Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each tablerows}}
+                    <tr>
+                        <td>{{bdate}}</td>
+                        <td>{{employee_initials}}</td>
+                        {{#equaltoo checked_status 1}}
+                            <td> Yes </td>
+                            {{else}}
+                                <td> No </td>
+                        {{/equaltoo}}
+                        <td>{{date}}</td>
+                        <td>{{time}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
